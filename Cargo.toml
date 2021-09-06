@@ -1,0 +1,11 @@
+[package]
+name = "crec"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+anyhow = "1.0"
+oci-registry = { path = "../oci_registry" }
+serde_json = "1.0"
+structopt = "0.3"
+tokio = { version = "1", features = ["full"] }
