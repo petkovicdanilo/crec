@@ -1,25 +1,25 @@
 use std::path::PathBuf;
 
 use anyhow::Result;
+use clap::Clap;
 use oci_registry::registry::Registry;
-use structopt::StructOpt;
 
-#[derive(StructOpt, Debug)]
+#[derive(Clap, Debug)]
 pub struct PullLayer {
     /// Container image
-    #[structopt(name = "image")]
+    #[clap(name = "image")]
     pub image: String,
 
     /// Specific tag
-    #[structopt(name = "tag")]
+    #[clap(name = "tag")]
     pub tag: String,
 
     /// Specific tag
-    #[structopt(name = "digest")]
+    #[clap(name = "digest")]
     pub digest: String,
 
     /// Output file
-    #[structopt(parse(from_os_str))]
+    #[clap(parse(from_os_str))]
     destination: PathBuf,
 }
 

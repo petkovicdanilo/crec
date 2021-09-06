@@ -1,24 +1,24 @@
 mod commands;
 
 use anyhow::Result;
+use clap::Clap;
 use commands::{config, index, manifest, pull, pull_layer, tags};
 use oci_registry::registry::{Registry, RegistryType};
-use structopt::StructOpt;
 
 /// Container Registry Client -
 /// command line utility to communicate with OCI registries
-#[derive(StructOpt, Debug)]
-#[structopt(name = "crec")]
+#[derive(Clap, Debug)]
+#[clap(name = "crec")]
 struct Opt {
     /// Registry to work with
-    #[structopt(long, default_value = "docker")]
+    #[clap(long, default_value = "docker")]
     registry: String,
 
-    #[structopt(flatten)]
+    #[clap(subcommand)]
     subcommand: SubCommand,
 }
 
-#[derive(StructOpt, Debug)]
+#[derive(Clap, Debug)]
 enum SubCommand {
     Manifest(manifest::Manifest),
     Index(index::Index),
@@ -30,7 +30,7 @@ enum SubCommand {
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    let opt = Opt::from_args();
+    let opt = Opt::parse();
     let registry = Registry::new(RegistryType::Docker);
 
     match opt.subcommand {

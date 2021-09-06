@@ -1,11 +1,11 @@
 use anyhow::Result;
 use oci_registry::registry::Registry;
-use structopt::StructOpt;
+use clap::Clap;
 
-#[derive(StructOpt, Debug)]
+#[derive(Clap, Debug)]
 pub struct Tags {
     /// Container image
-    #[structopt(name = "image")]
+    #[clap(name = "image")]
     pub image: String,
 }
 
