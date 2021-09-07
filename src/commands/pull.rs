@@ -1,8 +1,8 @@
 use std::path::PathBuf;
 
 use anyhow::Result;
-use oci_registry::registry::Registry;
 use clap::Clap;
+use oci_registry::registry::Registry;
 
 #[derive(Clap, Debug)]
 pub struct Pull {
@@ -20,10 +20,10 @@ pub struct Pull {
 }
 
 impl Pull {
-    pub async fn exec(&self, registry: Registry) -> Result<()> {
-        // registry
-        //     .pull_image(&self.image, &self.tag, &self.output)
-        //     .await?;
+    pub async fn exec(&self, mut registry: Registry) -> Result<()> {
+        registry
+            .pull_image(&self.image, &self.tag, &self.output)
+            .await?;
 
         Ok(())
     }

@@ -1,6 +1,6 @@
 use anyhow::Result;
-use oci_registry::registry::Registry;
 use clap::Clap;
+use oci_registry::registry::Registry;
 
 #[derive(Clap, Debug)]
 pub struct Tags {
@@ -10,9 +10,9 @@ pub struct Tags {
 }
 
 impl Tags {
-    pub async fn exec(&self, registry: Registry) -> Result<()> {
-        // let tags = registry.list_tags(&self.image).await?;
-        // println!("{}", serde_json::to_string_pretty(&tags)?);
+    pub async fn exec(&self, mut registry: Registry) -> Result<()> {
+        let tags = registry.list_tags(&self.image).await?;
+        println!("{}", serde_json::to_string_pretty(&tags)?);
 
         Ok(())
     }
