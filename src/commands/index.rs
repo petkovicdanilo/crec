@@ -6,11 +6,11 @@ use oci_registry::registry::Registry;
 pub struct Index {
     /// Container image
     #[clap(name = "image")]
-    pub image: String,
+    image: String,
 
     /// Specific tag
     #[clap(name = "tag")]
-    pub tag: String,
+    tag: String,
 }
 
 impl Index {

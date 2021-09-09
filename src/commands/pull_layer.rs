@@ -8,15 +8,15 @@ use oci_registry::registry::Registry;
 pub struct PullLayer {
     /// Container image
     #[clap(name = "image")]
-    pub image: String,
+    image: String,
 
     /// Specific tag
     #[clap(name = "tag")]
-    pub tag: String,
+    tag: String,
 
     /// Specific tag
     #[clap(name = "digest")]
-    pub digest: String,
+    digest: String,
 
     /// Output file
     #[clap(parse(from_os_str))]

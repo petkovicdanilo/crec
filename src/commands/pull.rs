@@ -13,27 +13,27 @@ use crate::platform::{parse_arch, parse_os, this_arch, this_os};
 pub struct Pull {
     /// Container image
     #[clap(name = "image")]
-    pub image: String,
+    image: String,
 
     /// Specific tag
     #[clap(name = "tag")]
-    pub tag: String,
+    tag: String,
 
     /// Output folder
     #[clap(parse(from_os_str))]
-    pub output: PathBuf,
+    output: PathBuf,
 
     /// Os for which to pull an image.
     /// Value should be from those listed in the Go Language document
     /// for [`GOOS`](https://golang.org/doc/install/source#environment)
     #[clap(long, parse(try_from_str = parse_os))]
-    pub os: Option<Os>,
+    os: Option<Os>,
 
     /// Architecture for which to pull an image.
     /// Value should be from those listed in the Go Language document
     /// for [`GOARCH`](https://golang.org/doc/install/source#environment)
     #[clap(long, parse(try_from_str = parse_arch))]
-    pub arch: Option<Arch>,
+    arch: Option<Arch>,
 }
 
 impl Pull {

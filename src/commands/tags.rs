@@ -6,7 +6,7 @@ use oci_registry::registry::Registry;
 pub struct Tags {
     /// Container image
     #[clap(name = "image")]
-    pub image: String,
+    image: String,
 }
 
 impl Tags {
