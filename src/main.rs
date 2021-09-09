@@ -1,4 +1,5 @@
 mod commands;
+mod platform;
 
 use std::str::FromStr;
 
