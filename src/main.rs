@@ -4,7 +4,7 @@ use std::str::FromStr;
 
 use anyhow::Result;
 use clap::Clap;
-use commands::{config, index, manifest, pull, pull_layer, tags};
+use commands::{catalog, config, index, manifest, pull, pull_layer, tags};
 use oci_registry::registry::Registry;
 
 #[derive(Clap, Debug)]
@@ -54,6 +54,7 @@ enum SubCommand {
     Config(config::Config),
     PullLayer(pull_layer::PullLayer),
     Pull(pull::Pull),
+    Catalog(catalog::Catalog),
 }
 
 fn known_registry_url(registry: &KnownRegistry) -> String {
@@ -80,6 +81,7 @@ async fn main() -> Result<()> {
         SubCommand::Config(config) => config.exec(registry).await?,
         SubCommand::PullLayer(pull_layer) => pull_layer.exec(registry).await?,
         SubCommand::Pull(pull) => pull.exec(registry).await?,
+        SubCommand::Catalog(catalog) => catalog.exec(registry).await?,
     };
 
     Ok(())
