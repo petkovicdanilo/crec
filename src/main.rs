@@ -1,11 +1,8 @@
-mod commands;
-mod platform;
-
 use std::str::FromStr;
 
 use anyhow::Result;
 use clap::Clap;
-use commands::{catalog, config, index, manifest, pull, pull_layer, tags};
+use crec::commands::{catalog, config, index, manifest, pull, pull_layer, tags};
 use oci_registry::registry::Registry;
 
 #[derive(Clap, Debug)]
