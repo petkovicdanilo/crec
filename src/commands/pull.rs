@@ -7,19 +7,16 @@ use oci_registry::{
     registry::Registry,
 };
 
+use crate::image::{parse_image_id, ImageId};
 use crate::platform::{parse_arch, parse_os, this_arch, this_os};
 
 /// Pull image to a disk in OCI standard way
 #[derive(Clap, Debug)]
 #[clap(author, version)]
 pub struct Pull {
-    /// Container image
-    #[clap(name = "image")]
-    image: String,
-
-    /// Specific tag
-    #[clap(name = "tag")]
-    tag: String,
+    /// Image id
+    #[clap(name = "IMAGE", parse(from_str = parse_image_id))]
+    image_id: ImageId,
 
     /// Output folder
     #[clap(parse(from_os_str))]
@@ -51,7 +48,13 @@ impl Pull {
         };
 
         registry
-            .pull_image(&self.image, &self.tag, &os, &arch, &self.output)
+            .pull_image(
+                &self.image_id.name,
+                &self.image_id.tag,
+                &os,
+                &arch,
+                &self.output,
+            )
             .await?;
 
         Ok(())
