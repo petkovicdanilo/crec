@@ -2,7 +2,9 @@ use anyhow::Result;
 use clap::Clap;
 use oci_registry::registry::Registry;
 
+/// Get manifest for given image
 #[derive(Clap, Debug)]
+#[clap(author, version)]
 pub struct Manifest {
     /// Container image
     #[clap(name = "image")]

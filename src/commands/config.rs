@@ -2,7 +2,9 @@ use anyhow::Result;
 use clap::Clap;
 use oci_registry::registry::Registry;
 
+/// Get a configuration object for given image
 #[derive(Clap, Debug)]
+#[clap(author, version)]
 pub struct Config {
     /// Container image
     #[clap(name = "image")]

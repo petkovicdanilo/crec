@@ -9,7 +9,9 @@ use oci_registry::{
 
 use crate::platform::{parse_arch, parse_os, this_arch, this_os};
 
+/// Pull image to a disk in OCI standard way
 #[derive(Clap, Debug)]
+#[clap(author, version)]
 pub struct Pull {
     /// Container image
     #[clap(name = "image")]

@@ -4,7 +4,7 @@ mod platform;
 use std::str::FromStr;
 
 use anyhow::Result;
-use clap::{crate_authors, crate_version, Clap};
+use clap::Clap;
 use commands::{catalog, config, index, manifest, pull, pull_layer, tags};
 use oci_registry::registry::Registry;
 
@@ -28,10 +28,8 @@ impl FromStr for KnownRegistry {
     }
 }
 
-/// Container Registry Client -
-/// command line utility to communicate with OCI registries
 #[derive(Clap, Debug)]
-#[clap(author = crate_authors!(), version = crate_version!())]
+#[clap(author, about, version)]
 struct Opt {
     /// Registry to work with. Possible values:
     /// docker, quay, mcr

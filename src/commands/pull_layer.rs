@@ -4,7 +4,9 @@ use anyhow::Result;
 use clap::Clap;
 use oci_registry::registry::Registry;
 
+/// Pull layer with given digest to a disk
 #[derive(Clap, Debug)]
+#[clap(author, version)]
 pub struct PullLayer {
     /// Container image
     #[clap(name = "image")]

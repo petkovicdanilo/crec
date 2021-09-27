@@ -2,7 +2,9 @@ use anyhow::Result;
 use clap::Clap;
 use oci_registry::registry::Registry;
 
+/// List all images available in a registry
 #[derive(Clap, Debug)]
+#[clap(author, version)]
 pub struct Catalog {}
 
 impl Catalog {

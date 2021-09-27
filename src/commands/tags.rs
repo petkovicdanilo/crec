@@ -2,7 +2,9 @@ use anyhow::Result;
 use clap::Clap;
 use oci_registry::registry::Registry;
 
+/// List all tags available for a given image
 #[derive(Clap, Debug)]
+#[clap(author, version)]
 pub struct Tags {
     /// Container image
     #[clap(name = "image")]

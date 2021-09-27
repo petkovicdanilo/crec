@@ -2,6 +2,7 @@
 name = "crec"
 version = "0.1.0"
 authors = [ "Danilo Petkovic <petkovicdanilo97@gmail.com>" ]
+description = "Container Registry Client - command line utility to communicate with OCI registries"
 edition = "2018"
 
 [dependencies]
