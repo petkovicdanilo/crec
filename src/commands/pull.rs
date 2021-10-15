@@ -36,7 +36,7 @@ pub struct Pull {
 }
 
 impl Pull {
-    pub async fn exec(&self, mut registry: Registry) -> Result<()> {
+    pub async fn exec(&self, registry: Registry) -> Result<()> {
         let os = match &self.os {
             Some(os) => os.clone(),
             None => this_os(),

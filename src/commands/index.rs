@@ -14,7 +14,7 @@ pub struct Index {
 }
 
 impl Index {
-    pub async fn exec(&self, mut registry: Registry) -> Result<()> {
+    pub async fn exec(&self, registry: Registry) -> Result<()> {
         let index = registry
             .pull_index(&self.image_id.name, &self.image_id.tag)
             .await?;

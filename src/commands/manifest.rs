@@ -14,7 +14,7 @@ pub struct Manifest {
 }
 
 impl Manifest {
-    pub async fn exec(&self, mut registry: Registry) -> Result<()> {
+    pub async fn exec(&self, registry: Registry) -> Result<()> {
         let manifest = registry
             .pull_manifest(&self.image_id.name, &self.image_id.tag)
             .await?;

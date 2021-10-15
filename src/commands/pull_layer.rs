@@ -20,9 +20,9 @@ pub struct PullLayer {
 }
 
 impl PullLayer {
-    pub async fn exec(&self, mut registry: Registry) -> Result<()> {
+    pub async fn exec(&self, registry: Registry) -> Result<()> {
         registry
-            .pull_blob(&self.image_name, &self.digest, &self.destination)
+            .pull_layer(&self.image_name, &self.digest, &self.destination)
             .await?;
 
         Ok(())

@@ -11,7 +11,7 @@ pub struct Tags {
 }
 
 impl Tags {
-    pub async fn exec(&self, mut registry: Registry) -> Result<()> {
+    pub async fn exec(&self, registry: Registry) -> Result<()> {
         let tags = registry.list_tags(&self.image_name).await?;
         println!("{}", serde_json::to_string_pretty(&tags)?);
 

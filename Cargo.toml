@@ -8,6 +8,6 @@ edition = "2018"
 [dependencies]
 anyhow = "1.0"
 clap = "3.0.0-beta.4"
-oci-registry = { git = "https://github.com/petkovicdanilo/oci-registry-rs", rev = "dd7d936" }
+oci-registry = { path = "../oci_registry" }
 serde_json = "1.0"
 tokio = { version = "1", features = ["full"] }
