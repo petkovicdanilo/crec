@@ -48,7 +48,7 @@ impl Pull {
         };
 
         registry
-            .pull_image(
+            .pull_image_with_progress_bar(
                 &self.image_id.name,
                 &self.image_id.tag,
                 &os,
