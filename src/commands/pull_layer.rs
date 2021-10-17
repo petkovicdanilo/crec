@@ -1,5 +1,6 @@
 use std::path::PathBuf;
 
+use crate::image::normalize_image_name;
 use anyhow::Result;
 use clap::Clap;
 use indicatif::ProgressBar;
@@ -10,9 +11,10 @@ use oci_registry::registry::Registry;
 #[clap(author, version)]
 pub struct PullLayer {
     /// Image name
+    #[clap(name = "IMAGE_NAME", parse(from_str = normalize_image_name))]
     image_name: String,
 
-    /// Specific tag
+    /// Layer digest
     digest: String,
 
     /// Output file

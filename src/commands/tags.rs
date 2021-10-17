@@ -1,3 +1,4 @@
+use crate::image::normalize_image_name;
 use anyhow::Result;
 use clap::Clap;
 use oci_registry::registry::Registry;
@@ -7,6 +8,7 @@ use oci_registry::registry::Registry;
 #[clap(author, version)]
 pub struct Tags {
     /// Image name
+    #[clap(name = "IMAGE_NAME", parse(from_str = normalize_image_name))]
     image_name: String,
 }
 

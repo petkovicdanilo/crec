@@ -25,7 +25,7 @@ pub fn parse_image_id(s: &str) -> ImageId {
     }
 }
 
-fn normalize_image_name(name: &str) -> String {
+pub fn normalize_image_name(name: &str) -> String {
     if name.contains("/") {
         name.to_string()
     } else {
