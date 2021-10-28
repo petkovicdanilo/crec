@@ -1,7 +1,7 @@
 use crate::image::normalize_image_name;
 use anyhow::Result;
 use clap::Clap;
-use oci_registry::registry::Registry;
+use oci_registry::Registry;
 
 /// List all tags available for a given image
 #[derive(Clap, Debug)]

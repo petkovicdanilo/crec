@@ -1,6 +1,6 @@
 use anyhow::Result;
 use clap::Clap;
-use oci_registry::registry::Registry;
+use oci_registry::Registry;
 
 use crate::image::{parse_image_id, ImageId};
 

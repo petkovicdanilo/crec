@@ -3,7 +3,7 @@ use std::str::FromStr;
 use anyhow::Result;
 use clap::Clap;
 use crec::commands::{catalog, config, index, manifest, pull, pull_layer, tags};
-use oci_registry::registry::Registry;
+use oci_registry::Registry;
 
 #[derive(Clap, Debug)]
 enum KnownRegistry {

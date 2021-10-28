@@ -4,7 +4,7 @@ use anyhow::Result;
 use clap::Clap;
 use oci_registry::{
     oci_spec::image::{Arch, Os},
-    registry::Registry,
+    Registry,
 };
 
 use crate::image::{parse_image_id, ImageId};

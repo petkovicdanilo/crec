@@ -1,6 +1,6 @@
 use anyhow::Result;
 use clap::Clap;
-use oci_registry::registry::Registry;
+use oci_registry::Registry;
 
 /// List all images available in a registry
 #[derive(Clap, Debug)]

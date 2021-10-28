@@ -4,7 +4,7 @@ use crate::image::normalize_image_name;
 use anyhow::Result;
 use clap::Clap;
 use indicatif::ProgressBar;
-use oci_registry::registry::Registry;
+use oci_registry::Registry;
 
 /// Pull layer with given digest to a disk
 #[derive(Clap, Debug)]
